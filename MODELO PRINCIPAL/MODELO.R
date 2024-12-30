@@ -117,7 +117,7 @@ PRONOSTICO <- predict(model,n.ahead = 12, ci=0.9)
 model_coefs <- model$varresult$ICV60 %>% coef() %>% data.frame()
 DATA_MOD %>% View()
 openxlsx::write.xlsx(list(COEFICIENTES=model_coefs,DATA=DATA_MOD %>% data.frame(),FORECAST=FORE$fcst$ICV60),
-                     'INPUTS DE SENSIBILIDAD.xlsx',rowNames=T) 
+                     'INPUTS DE SENSIBILIDAD.xlsx',rowNames=T)
 # -------------------------------------------------------------------------
 
 # GRAFICA DE PRONOSTICO ICV ------------------------------------------------
