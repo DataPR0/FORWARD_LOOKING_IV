@@ -5,7 +5,7 @@
 # -------------------------------------------------------------------------
 # LIBRERIAS ---------------------------------------------------------------
 
-setwd("C:/Users/ivan.villalba/Documents/R Scripts and projects/FORWARD LOOKING/MODELO PRINCIPAL")
+setwd("//192.168.40.9/garaje$/BackUps_Analitica/BACKUP IVAN/ORGANIGRAMA/FORWARD LOOKING/MODELO PRINCIPAL")
 
 require(pacman)
 p_load(tidyverse,lubridate,zoo,stringi,magrittr,readxl,openxlsx)
