@@ -2,7 +2,7 @@
 
 # FL COMPONENTE 2 ---------------------------------------------------------
 # ANALISIS CREDITOS INDIVIDUALES ------------------------------------------
-setwd("C:/Users/ivan.villalba/Documents/R Scripts and projects/FORWARD LOOKING/FL PT 2 - CREDITOS IND")
+setwd("//192.168.40.9/garaje$/BackUps_Analitica/BACKUP IVAN/ORGANIGRAMA/FORWARD LOOKING")
 # -------------------------------------------------------------------------
 
 require(pacman)
@@ -35,7 +35,7 @@ Tabla_comite <- DBI::dbGetQuery(conn = Conexion_comite, statement = QUERY_carter
 
 #Tabla_comite <- read_csv2('TABLA COMITE - PANEL DESDE 2022.csv')
 
-cod_ocupaciones <- read_csv2("C:/Users/ivan.villalba/Documents/R Scripts and projects/FORWARD LOOKING/Ocupaciones/VISTA_UBICACION_DEMO.csv")
+cod_ocupaciones <- read_csv2("//192.168.40.9/garaje$/BackUps_Analitica/BACKUP IVAN/ORGANIGRAMA/FORWARD LOOKING/MODELO OCUPACIONES/Ocupaciones/VISTA_UBICACION_DEMO.csv")
 
 # MANIPULACION ------------------------------------------------------------
 
@@ -161,7 +161,7 @@ PANEL_ICV %>% ggplot(aes(x=as.factor(id_fecha), y=int_cap, col=descripcion_ocu, 
               
 data.frame(efectos_ind) %>% mutate(Ocupación = rownames(.),
                                    efectos_ind = as.numeric(efectos_ind))  %>% 
-                            openxlsx::write.xlsx('COMPONENTE DE EFECTO FIJO2.xlsx', rownames=T)
+                            openxlsx::write.xlsx('COMPONENTE DE EFECTO FIJO.xlsx', rownames=T)
 
 # -------------------------------------------------------------------------
 
