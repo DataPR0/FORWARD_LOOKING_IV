@@ -13,6 +13,10 @@ p_load(tseries,forecast,vars,seasonal,tempdisagg,urca,lmtest)
 p_load(caret)
 
 # ARCHIVOS ----------------------------------------------------------------
+
+## Tener en cuenta que las independientes tienen corte previo, actualizar as.Date cada vez que se actualizan, el modelo sólo tomará hasta la fecha en que estén completas
+## Depende de Testing Variables.R
+
 DATAOR <- read_excel('FL ICV VARIABLES.xlsx') %>% ts(start = c(2005,1),frequency = 12)
 DATA_ICV <- read_excel('INDICADORES_CV.xlsx')
 
@@ -22,11 +26,11 @@ DATA_CONS <- merge.zoo(DATAOR,DATA_ICV) %>% data.frame() %>%
                 mutate(Fecha = seq(as.Date('2005-01-01'),as.Date('2024-12-01'),by='month')) %>%
                 drop_na()
 
-DATA <- DATA_CONS 
+DATA <- DATA_CONS
 
 prueba_st <- DATA_ICV %>% sapply(function (x){return(diff(x))}) %>% 
                           data.frame %>% 
-                          sapply(function (y){return(adf.test(y)$p.value)}) 
+                          sapply(function (y){return(adf.test(y)$p.value)})
 prueba_st
 # -------------------------------------------------------------------------
 
